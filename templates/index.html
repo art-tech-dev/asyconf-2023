@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculateur de Score et Taux d'emprunt</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: rgb(142, 245, 133);
+            color: gray;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            background-color: rgb(142, 245, 133);
+            color: gray;
+            text-align: left;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .menu-item {
+            width: calc(50% - 10px); /* 50% moins la marge entre les éléments */
+        }
+
+        input[type="submit"] {
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        input {
+            width: 280px; /* Largeur souhaitée */
+            height: 100px; /* Hauteur souhaitée */
+            background-color: #3498db; /* Couleur de fond */
+            color: #fff; /* Couleur du texte */
+            font-size: 16px; /* Taille du texte */
+            border: none; /* Supprime la bordure par défaut */
+            border-radius: 10px; /* Ajoute des coins arrondis */
+            cursor: pointer; /* Curseur de la souris en forme de main sur le survol */
+        }
+       
+
+
+        input[type="submit"] {
+            position: fixed;
+            top: 30%; /* 10% depuis le haut de la fenêtre */
+            left: 55%; /* 10% depuis la gauche de la fenêtre */
+    
+}
+
+input[type="submit"]:hover {
+    background-color: darkgreen;
+}
+.menu-item input[type="submit"] {
+    font-size: 20px; /* Remplacez 16px par la taille de police souhaitée */
+}
+.position-relative {
+        position: absolute;
+        top: 43%;
+        left: 56%;
+        color: black;
+        font-weight: bold;
+    }
+.position-relativee {
+        position: absolute;
+        top: 25%;
+        left: 56%;
+        color: black;
+        font-weight: bold;
+    }
+    
+
+       
+    </style>
+    <script>
+        function validateForm() {
+            var typeVehicule = document.getElementById("type_véhicule").value;
+            var énergie = document.getElementById("énergie").value;
+            var annéeFabrication = document.getElementById("année_fabrication").value;
+            var kilométrage = document.getElementById("kilométrage").value;
+            var passagers = document.getElementById("passagers").value;
+
+            if (typeVehicule === "none" || énergie === "none" || annéeFabrication === "none" || kilométrage === "none" || passagers === "none") {
+                alert("Veuillez sélectionner des options valides pour tous les champs.");
+                return false; // Empêche l'envoi du formulaire si une option "none" est sélectionnée.
+            }
+            
+                      
+
+            return true; // Permet l'envoi du formulaire si toutes les sélections sont valides.
+        }
+    </script>
+</head>
+<body>
+    <h1>Simulateur de Taux d'emprunt</h1>
+    <form method="POST" onsubmit="return validateForm()"> 
+        <!-- regroupemment de tout les composant sur la gauche-->
+        <div class="menu-container">
+
+            <div class="menu-item">
+                <label for="type_véhicule">Type de véhicule :</label>
+                <select name="type_véhicule" id="type_véhicule">
+                    <option value="none">Type de véhicule</option>
+                    <option value="Citadine">Citadine</option>
+                    <option value="Cabriolet">Cabriolet</option>
+                    <option value="Berline">Berline</option>
+                    <option value="SUV / 4x4">SUV / 4x4</option>
+                </select><br>
+            
+
+            
+                <label for="énergie">Energie :</label>
+                <select name="énergie" id="énergie">
+                    <option value="none">Energie</option>
+                    <option value="Essence">Essence</option>
+                    <option value="Electrique">Electrique</option>
+                    <option value="Gaz">Gaz</option>
+                    <option value="Hybride">Hybride</option>
+                    <option value="Diesel">Diesel</option>
+                </select><br>
+            
+
+            
+                <label for="année_fabrication">Date de sortie :</label>
+                <select name="année_fabrication" id="année_fabrication">
+                    <option value="none">Date de sortie du véhicule</option>
+                    <option value="1965">1960 - 1970</option>
+                    <option value="1975">1970 - 1980</option>
+                    <option value="1985">1980 - 1990</option>
+                    <option value="1995">1990 - 2000</option>
+                    <option value="2005">2000 - 2010</option>
+                    <option value="2015">Après 2010</option>
+                </select><br>
+            
+
+            
+                <label for="kilométrage">Kilométrage /an :</label>
+                <select name="kilométrage" id="kilométrage">
+                    <option value="none">Kilométrage</option>
+                    <option value="9000">5,000 - 10,000 km</option>
+                    <option value="14000">10,000 - 15,000 km</option>
+                    <option value="19000">15,000 - 20,000 km</option>
+                    <option value="24000">20,000 - 25,000 km</option>
+                    <option value="29000">25,000 - 30,000 km</option>
+                </select><br>
+            
+        
+            
+                <label for="passagers">Nombre de passagers :</label>
+                <select name="passagers" id="passagers">
+                    <option value="none">Nombre de passagers</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select><br>
+            </div>
+            
+            </form>
+            <div class="menu-item">
+                
+
+                <input type="submit" onclick="preventDropdownClose(event)" value="Simuler votre taux d'emprunt">
+                {% if score_véhicule %}
+            
+                
+                
+                <h2 class="position-relative">Taux d'emprunt: {{ taux_emprunt }} %</h2>
+                <p id="reminder-content" class="position-relativee"></p>
+
+                               
+            {% endif %}
+            
+            
+            
+               
+
+
+
+
+
+                
+            </div>
+        </div>
+   <p>by <em>art-tech-dev</em></p>
+</body>
+</html>
